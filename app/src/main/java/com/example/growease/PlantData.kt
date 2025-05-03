@@ -610,77 +610,80 @@ object PlantData {
         PlantItem(
             R.drawable.grow,
             "Bitkinin Gübre İhtiyacını Tanı",
-            "Doğal maddelerden elde edilen, bitki dostu gübre.",
-            "Düzenli sulama ile birlikte kullanılmalı.",
-            "Güneş ışığında uygulanmamalı.",
-            "Tüm toprak tiplerinde kullanılabilir"
+            "Bitkinin türüne göre (saksı, ağaç, meyve, sebze) farklı gübre ihtiyaçları belirlenir.",
+            "Gübreleme öncesi toprak nemli olmalı.",
+            "Güneş ışığı altında doğrudan uygulama yapmaktan kaçınılmalı.",
+            "Toprak tipi: Saksılar için torflu, ağaçlar için humuslu, sebzeler için kompost karışımlı toprak uygundur."
         ),
         PlantItem(
             R.drawable.grow,
             "Doğru Gübre Türünü Seç",
-            "Organik atıklardan elde edilen, toprak düzenleyici.",
-            "Düzenli sulama ile birlikte kullanılmalı.",
-            "Güneş ışığında uygulanmamalı.",
-            "Tüm toprak tiplerinde kullanılabilir"
+            "Yeşil bitkiler için azot ağırlıklı, çiçekli bitkiler için fosfor ağırlıklı gübreler tercih edilmeli.",
+            "Her gübre türü sulama ile desteklenmeli.",
+            "Uygulama zamanı serin saatler (sabah/akşam).",
+            "Genelde tüm toprak tipleri için uygundur; geçirgen toprak tercih edilir."
         ),
         PlantItem(
             R.drawable.grow,
             "Gübreleme Zamanını Belirle",
-            "Bitkilerin ihtiyaç duyduğu mineralleri içeren gübre.",
-            "Düzenli sulama ile birlikte kullanılmalı.",
-            "Güneş ışığında uygulanmamalı.",
-            "Tüm toprak tiplerinde kullanılabilir"
+            "Saksılar için ilkbahar ve yaz, ağaçlar için ilkbahar başı, sebzeler için dikimden 2 hafta sonrası uygundur.",
+            "Gübreleme sonrası bol sulama yapılmalı.",
+            "Güneşin yoğun olduğu saatlerde yapılmamalı.",
+            "Toprak tipi iyi drene olan, su tutmayan toprak olmalı."
         ),
         PlantItem(
             R.drawable.grow,
             "Gübreyi Doğru Uygula",
-            "Yapraklar üzerinden uygulanan, hızlı etkili gübre.",
-            "Yapraklar kuru iken uygulanmalı.",
+            "Kökten uygulamalarda toprak yüzeyine serpip hafifçe toprağa karıştır. Yaprak gübrelerinde ise yapraklar kuru olmalı.",
+            "Sıvı gübreler sulama suyuna karıştırılarak verilmeli.",
             "Sabah veya akşam saatlerinde uygulanmalı.",
-            "Tüm bitki tiplerinde kullanılabilir"
+            "Bitki türüne göre uygulama yöntemi değişir; her bitki için uyumlu tip seçilmeli."
         ),
         PlantItem(
             R.drawable.grow,
             "Gübreleme Sonrası Takip Et",
-            "Organik atıklardan elde edilen, toprak düzenleyici.",
-            "Düzenli sulama ile birlikte kullanılmalı.",
-            "Güneş ışığında uygulanmamalı.",
-            "Tüm toprak tiplerinde kullanılabilir"
+            "Bitkinin gelişimi takip edilmeli; yaprak rengi ve büyüme kontrol edilmeli.",
+            "Toprakta tuz birikimi olup olmadığı izlenmeli.",
+            "Gerekirse yapraklar temiz su ile yıkanmalı.",
+            "Toprak düzenini ve drenajını düzenli kontrol et."
         )
     )
+
 
     val budama = listOf(
         PlantItem(
             R.drawable.grow,
             "Ağaç Budama",
-            "Ağaçların sağlıklı büyümesi için yapılan budama teknikleri.",
-            "Budama sonrası düzenli sulama gerekir.",
-            "Budama için uygun hava koşulları seçilmeli.",
-            "Tüm ağaç tiplerinde uygulanabilir"
+            "Ağaçların sağlıklı büyümesi ve hava akışını sağlamak için ölü ve zayıf dallar kesilir.",
+            "Budama sonrası toprak nemli tutulmalı; aşırı sulamadan kaçınılmalı.",
+            "En uygun zaman: İlkbahar başı veya sonbahar ortası; yağışsız günler tercih edilmeli.",
+            "Genelde derin, besin açısından zengin topraklarda daha etkili olur."
         ),
         PlantItem(
             R.drawable.grow,
             "Çit Budama",
-            "Çit bitkilerinin düzenli görünümü için yapılan budama.",
-            "Budama sonrası düzenli sulama gerekir.",
-            "Budama için uygun hava koşulları seçilmeli.",
-            "Tüm çit bitkilerinde uygulanabilir"
+            "Çit bitkilerinin sık ve düzgün görünmesi için yılda birkaç kez hafif budama yapılır.",
+            "Budama sonrası hafif sulama yeterlidir.",
+            "En uygun zaman: İlkbahar ve yaz başında; çok sıcak saatlerden kaçınılmalı.",
+            "Hafif geçirgen ve humuslu toprak tercih edilir."
         ),
         PlantItem(
             R.drawable.grow,
             "Meyve Ağacı Budama",
-            "Meyve verimini artırmak için yapılan özel budama teknikleri.",
-            "Budama sonrası düzenli sulama gerekir.",
-            "Budama için uygun hava koşulları seçilmeli.",
-            "Tüm meyve ağaçlarında uygulanabilir"
+            "Meyve verimini ve dal dengesi için genç dallar seyreltilir; içe büyüyen dallar kesilir.",
+            "Budama sonrası dengeli sulama yapılmalı.",
+            "En uygun zaman: Kış sonunda veya ilkbahar başında, don riski geçtikten sonra.",
+            "Organik maddece zengin topraklar tercih edilir."
         ),
         PlantItem(
             R.drawable.grow,
-            "Süs Bitkisi Budama",
-            "Süs bitkilerinin şekillendirilmesi için yapılan budama.",
-            "Budama sonrası düzenli sulama gerekir.",
-            "Budama için uygun hava koşulları seçilmeli.",
-            "Tüm süs bitkilerinde uygulanabilir"
+            "Saksı Bitkisi Budama",
+            "Bitkiye şekil vermek ve canlı görünüm sağlamak için solmuş ve fazla büyüyen dallar kesilir.",
+            "Budama sonrası bitkinin nem dengesi korunmalı.",
+            "En uygun zaman: İlkbahar ve yaz ortası; akşam serinliği tercih edilmeli.",
+            "Geçirgen ve torf karışımlı toprak daha iyi sonuç verir."
         )
     )
+
+
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
 import android.widget.TextView
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -60,11 +61,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupSearchView() {
         searchView = findViewById(R.id.searchView)
+
         
         // Hint rengini sabit bir renk olarak ayarla (gece-gündüz modu aynı olacak)
         val id = searchView.context.resources.getIdentifier("android:id/search_src_text", null, null)
         val textView = searchView.findViewById<TextView>(id)
         textView?.setHintTextColor(Color.parseColor("#757575")) // Gri renk
+        
+        // Kullanıcının yazdığı metni görünür yap (koyu renk)
+        textView?.setTextColor(Color.parseColor("#212121")) // Koyu renk
+        
+        // Arama ikonunun rengini her iki modda da aynı olacak şekilde ayarla
+        val searchIconId = searchView.context.resources.getIdentifier("android:id/search_mag_icon", null, null)
+        val searchIcon = searchView.findViewById<ImageView>(searchIconId)
+        searchIcon?.setColorFilter(Color.parseColor("#757575")) // İkon için de aynı gri renk
         
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -170,15 +180,48 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         // Geri tuşuna basıldığında önce fragment'ı kaldır
         if (supportFragmentManager.backStackEntryCount > 0) {
-            supportFragmentManager.popBackStack()
+            // popBackStack'i çağırmadan önce backstack'in durumunu tespit edelim
+            val isLastBackStackEntry = supportFragmentManager.backStackEntryCount == 1
             
-            // Eğer kalan fragment yoksa ana ekrana dön
-            if (supportFragmentManager.backStackEntryCount == 0) {
+            if (isLastBackStackEntry) {
+                // Son fragment ise, önce ana ekranı göster, sonra fragment'ı kaldır
                 showMainScreen()
+                supportFragmentManager.popBackStack()
+            } else {
+                // Başka fragmentlar varsa, sadece fragment'ı kaldır
+                supportFragmentManager.popBackStack()
             }
         } else {
+            // Ana ekrandayken çıkış dialog'unu göster
+            showExitDialog()
+        }
+    }
+
+    private fun showExitDialog() {
+        val builder = android.app.AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert)
+        
+        // Dialog başlığı ve mesajı
+        builder.setTitle("Uygulamadan Çık")
+        builder.setMessage("Uygulamadan çıkmak istediğinize emin misiniz?")
+        
+        // Evet butonu
+        builder.setPositiveButton("Evet") { dialog, _ ->
+            dialog.dismiss()
             super.onBackPressed()
         }
+        
+        // Hayır butonu
+        builder.setNegativeButton("Hayır") { dialog, _ ->
+            dialog.dismiss()
+        }
+        
+        // Dialog görünümünü özelleştir
+        val dialog = builder.create()
+        dialog.show()
+        
+        // Buton renklerini ayarla
+        dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#4CAF50"))
+        dialog.getButton(android.app.AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#F44336"))
     }
 
     private fun showMainScreen() {

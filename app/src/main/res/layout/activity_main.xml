@@ -13,19 +13,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- SearchView -->
-        <SearchView
-            android:id="@+id/searchView"
+        <!-- Search Container with Menu -->
+        <LinearLayout
+            android:id="@+id/searchContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/searchview_background"
-            android:iconifiedByDefault="false"
-            android:queryHint="Bitki ara..."
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- SearchView -->
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:iconifiedByDefault="false"
+                android:queryHint="Bitki ara..." />
+
+            <!-- Menu button will be added programmatically here -->
+            <Space
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+        </LinearLayout>
 
         <!-- Search Results RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
@@ -39,7 +56,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchView" />
+            app:layout_constraintTop_toBottomOf="@id/searchContainer" />
 
         <!-- Main Content ScrollView -->
         <ScrollView
@@ -51,7 +68,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchView">
+            app:layout_constraintTop_toBottomOf="@id/searchContainer">
 
             <LinearLayout
                 android:layout_width="match_parent"

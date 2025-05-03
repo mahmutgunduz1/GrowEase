@@ -2,10 +2,15 @@ package com.example.growease.view
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.SearchView
 import android.widget.TextView
-import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -19,6 +24,7 @@ import com.example.growease.PlantDetailFragment
 import com.example.growease.PlantItem
 import com.example.growease.R
 import com.example.growease.adapter.PlantAdapter
+import com.example.growease.fragment.FavoritesFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var searchView: SearchView
@@ -42,7 +48,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
+        // Don't hide ActionBar completely, we need it for the menu
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         
@@ -54,9 +61,78 @@ class MainActivity : AppCompatActivity() {
         setupSearchView()
         setupRecyclerView()
         setupCardClickListeners()
+        setupOptionsMenu()
         
         // İlk açılışta ana ekranı göster
         showMainScreen()
+    }
+
+    private fun setupOptionsMenu() {
+        // Add a menu button to the right of SearchView
+        val menuButton = ImageView(this)
+        // Yeni ikon kullanılıyor
+        menuButton.setImageResource(R.drawable.kalp)
+        menuButton.setPadding(16, 16, 16, 16)
+        
+        // Get the search container
+        val searchContainer = findViewById<LinearLayout>(R.id.searchContainer)
+        
+        // Remove the space placeholder and add the menu button
+        if (searchContainer != null && searchContainer.childCount > 1) {
+            // Remove the space placeholder
+            searchContainer.removeViewAt(searchContainer.childCount - 1)
+            
+            // Add menu button
+            val layoutParams = LinearLayout.LayoutParams(
+                resources.getDimensionPixelSize(android.R.dimen.app_icon_size),
+                resources.getDimensionPixelSize(android.R.dimen.app_icon_size)
+            )
+            layoutParams.gravity = Gravity.CENTER_VERTICAL
+            menuButton.layoutParams = layoutParams
+            searchContainer.addView(menuButton)
+        }
+        
+        // Show popup menu when clicked
+        menuButton.setOnClickListener { view ->
+            showMoreOptionsMenu(view)
+        }
+    }
+    
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+    
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_favorites -> {
+                // Show Favorites screen
+                showFavoritesFragment()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    
+    private fun showMoreOptionsMenu(view: View) {
+        val popupMenu = android.widget.PopupMenu(this, view)
+        popupMenu.menuInflater.inflate(R.menu.main_menu, popupMenu.menu)
+        
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_favorites -> {
+                    showFavoritesFragment()
+                    true
+                }
+                else -> false
+            }
+        }
+        
+        popupMenu.show()
+    }
+    
+    private fun showFavoritesFragment() {
+        showFragment(FavoritesFragment.newInstance())
     }
 
     private fun setupSearchView() {

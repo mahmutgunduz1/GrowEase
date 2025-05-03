@@ -6,10 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.growease.model.FavoritesManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PlantDetailFragment : Fragment() {
     private var plantItem: PlantItem? = null
+    private lateinit var favoritesManager: FavoritesManager
+    private lateinit var favoriteButton: FloatingActionButton
 
     companion object {
         private const val ARG_PLANT = "plant"
@@ -26,6 +31,7 @@ class PlantDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         plantItem = arguments?.getParcelable(ARG_PLANT)
+        favoritesManager = FavoritesManager(requireContext())
     }
 
     override fun onCreateView(
@@ -39,9 +45,43 @@ class PlantDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        // Favorite button setup
+        favoriteButton = view.findViewById(R.id.favoriteButton)
+        updateFavoriteButtonState()
+        
+        favoriteButton.setOnClickListener {
+            toggleFavorite()
+        }
+        
         // Ağır işlemleri delay ile çalıştır (UI thread'inin düzgün çalışması için)
         view.post {
             bindPlantData(view)
+        }
+    }
+    
+    private fun toggleFavorite() {
+        plantItem?.let { plant ->
+            val isNowFavorite = favoritesManager.toggleFavorite(plant)
+            updateFavoriteButtonState()
+            
+            // Show toast message
+            val message = if (isNowFavorite) {
+                "Favorilere eklendi"
+            } else {
+                "Favorilerden çıkarıldı"
+            }
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        }
+    }
+    
+    private fun updateFavoriteButtonState() {
+        plantItem?.let { plant ->
+            val isFavorite = favoritesManager.isInFavorites(plant)
+            if (isFavorite) {
+                favoriteButton.setImageResource(R.drawable.ic_favorite_filled)
+            } else {
+                favoriteButton.setImageResource(R.drawable.ic_favorite_border)
+            }
         }
     }
     

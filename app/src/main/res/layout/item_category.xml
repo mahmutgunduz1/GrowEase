@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
+    android:backgroundTint="@color/white"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
@@ -16,17 +17,86 @@
             android:id="@+id/itemImage"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="Item Image" />
+            android:contentDescription="Item Image"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/itemTitle"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/itemDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:paddingHorizontal="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+            
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center">
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="16dp">
+                
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@android:drawable/ic_menu_compass"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="Water Icon" />
+                    
+                <TextView
+                    android:id="@+id/itemWaterNeeds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@android:drawable/ic_menu_gallery"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="Light Icon" />
+                    
+                <TextView
+                    android:id="@+id/itemLightNeeds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="4dp"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

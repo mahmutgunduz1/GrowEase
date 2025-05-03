@@ -1,15 +1,20 @@
 package com.example.growease.view
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.view.WindowInsetsControllerCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.growease.CategoryFragment
 import com.example.growease.PlantData
+import com.example.growease.PlantDetailFragment
 import com.example.growease.PlantItem
 import com.example.growease.R
 import com.example.growease.adapter.PlantAdapter
@@ -18,6 +23,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var searchView: SearchView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PlantAdapter
+    
+    // Görünümler
+    private lateinit var mainContainer: View
+    private lateinit var fragmentContainer: View
+    
     private val allPlants by lazy {
         mutableListOf<PlantItem>().apply {
             addAll(PlantData.saksiBitkileri)
@@ -34,14 +44,28 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        
+        // View referanslarını al
+        mainContainer = findViewById(R.id.mainContainer)
+        fragmentContainer = findViewById(R.id.fragmentContainer)
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
 
         setupSearchView()
         setupRecyclerView()
         setupCardClickListeners()
+        
+        // İlk açılışta ana ekranı göster
+        showMainScreen()
     }
 
     private fun setupSearchView() {
         searchView = findViewById(R.id.searchView)
+        
+        // Hint rengini sabit bir renk olarak ayarla (gece-gündüz modu aynı olacak)
+        val id = searchView.context.resources.getIdentifier("android:id/search_src_text", null, null)
+        val textView = searchView.findViewById<TextView>(id)
+        textView?.setHintTextColor(Color.parseColor("#757575")) // Gri renk
+        
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (!query.isNullOrBlank()) {
@@ -75,7 +99,16 @@ class MainActivity : AppCompatActivity() {
         
         val searchResults = allPlants.filter { plant ->
             val plantName = plant.title.trim().lowercase()
-            plantName.startsWith(searchQuery)
+            val plantDescription = plant.description.trim().lowercase()
+            val plantWaterNeeds = plant.waterNeeds.trim().lowercase()
+            val plantLightNeeds = plant.lightNeeds.trim().lowercase()
+            val plantSoilType = plant.soilType.trim().lowercase()
+            
+            plantName.contains(searchQuery) || 
+            plantDescription.contains(searchQuery) ||
+            plantWaterNeeds.contains(searchQuery) ||
+            plantLightNeeds.contains(searchQuery) ||
+            plantSoilType.contains(searchQuery)
         }
 
         if (searchResults.isNotEmpty()) {
@@ -92,15 +125,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearSearch() {
-        showMainScreen()
+        findViewById<View>(R.id.scrollView).visibility = View.VISIBLE
+        findViewById<View>(R.id.searchResultsRecyclerView).visibility = View.GONE
+        adapter.submitList(emptyList())
     }
 
     private fun showPlantDetail(plant: PlantItem) {
-        val detailFragment = PlantDetailFragment.newInstance(plant)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, detailFragment)
-            .addToBackStack(null)
-            .commit()
+        showFragment(PlantDetailFragment.newInstance(plant))
     }
 
     private fun setupCardClickListeners() {
@@ -121,11 +152,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showCategoryFragment(category: String) {
-        findViewById<View>(R.id.scrollView).visibility = View.GONE
-        findViewById<View>(R.id.fragmentContainer).visibility = View.VISIBLE
-        findViewById<View>(R.id.searchView).visibility = View.GONE
+        showFragment(CategoryFragment.newInstance(category))
+    }
+    
+    private fun showFragment(fragment: Fragment) {
+        // Ana içerik konteynırını gizle, fragment konteynırını göster
+        mainContainer.visibility = View.GONE
+        fragmentContainer.visibility = View.VISIBLE
         
-        val fragment = CategoryFragment.newInstance(category)
+        // Fragment'ı ekle
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .addToBackStack(null)
@@ -133,10 +168,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        // Geri tuşuna basıldığında önce fragment'ı kaldır
         if (supportFragmentManager.backStackEntryCount > 0) {
             supportFragmentManager.popBackStack()
             
-            // Eğer back stack boşsa ana ekrana dön
+            // Eğer kalan fragment yoksa ana ekrana dön
             if (supportFragmentManager.backStackEntryCount == 0) {
                 showMainScreen()
             }
@@ -146,10 +182,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showMainScreen() {
-        findViewById<View>(R.id.scrollView).visibility = View.VISIBLE
-        findViewById<View>(R.id.fragmentContainer).visibility = View.GONE
-        findViewById<View>(R.id.searchView).visibility = View.VISIBLE
-        findViewById<View>(R.id.searchResultsRecyclerView).visibility = View.GONE
+        // Fragment konteynırını gizle, ana içerik konteynırını göster
+        fragmentContainer.visibility = View.GONE 
+        mainContainer.visibility = View.VISIBLE
+        
+        // Arama sonuçlarını temizle
         adapter.submitList(emptyList())
+        
+        // Varsayılan olarak ScrollView'ı göster, arama sonuçlarını gizle
+        findViewById<View>(R.id.searchResultsRecyclerView).visibility = View.GONE
+        findViewById<View>(R.id.scrollView).visibility = View.VISIBLE
     }
 }

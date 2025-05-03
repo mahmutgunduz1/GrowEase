@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.growease.PlantDetailFragment
 import com.example.growease.PlantItem
 import com.example.growease.R
 import com.example.growease.adapter.PlantAdapter

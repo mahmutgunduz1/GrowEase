@@ -28,6 +28,9 @@ class PlantAdapter(private val onItemClick: (PlantItem) -> Unit) :
     inner class PlantViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.plantImageView)
         private val nameTextView: TextView = itemView.findViewById(R.id.plantNameTextView)
+        private val descriptionTextView: TextView = itemView.findViewById(R.id.plantDescriptionTextView)
+        private val waterNeedsTextView: TextView = itemView.findViewById(R.id.plantWaterNeedsTextView)
+        private val lightNeedsTextView: TextView = itemView.findViewById(R.id.plantLightNeedsTextView)
 
         init {
             itemView.setOnClickListener {
@@ -41,6 +44,9 @@ class PlantAdapter(private val onItemClick: (PlantItem) -> Unit) :
         fun bind(plant: PlantItem) {
             imageView.setImageResource(plant.imageResId)
             nameTextView.text = plant.title
+            descriptionTextView.text = plant.description
+            waterNeedsTextView.text = plant.waterNeeds
+            lightNeedsTextView.text = plant.lightNeeds
         }
     }
 

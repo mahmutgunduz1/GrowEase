@@ -38,14 +38,28 @@ class PlantDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        
+        // Ağır işlemleri delay ile çalıştır (UI thread'inin düzgün çalışması için)
+        view.post {
+            bindPlantData(view)
+        }
+    }
+    
+    private fun bindPlantData(view: View) {
+        if (!isAdded) return  // Fragment geçerli değilse çık
+        
         plantItem?.let { plant ->
-            view.findViewById<ImageView>(R.id.detailImage).setImageResource(plant.imageResId)
-            view.findViewById<TextView>(R.id.detailTitle).text = plant.title
-            view.findViewById<TextView>(R.id.detailDescription).text = plant.description
-            view.findViewById<TextView>(R.id.detailWaterNeeds).text = plant.waterNeeds
-            view.findViewById<TextView>(R.id.detailLightNeeds).text = plant.lightNeeds
-            view.findViewById<TextView>(R.id.detailSoilType).text = plant.soilType
+            try {
+                view.findViewById<ImageView>(R.id.detailImage).setImageResource(plant.imageResId)
+                view.findViewById<TextView>(R.id.detailTitle).text = plant.title
+                view.findViewById<TextView>(R.id.detailDescription).text = plant.description
+                view.findViewById<TextView>(R.id.detailWaterNeeds).text = plant.waterNeeds
+                view.findViewById<TextView>(R.id.detailLightNeeds).text = plant.lightNeeds
+                view.findViewById<TextView>(R.id.detailSoilType).text = plant.soilType
+            } catch (e: Exception) {
+                // Herhangi bir hata durumunda logcat'e yazdırma
+                e.printStackTrace()
+            }
         }
     }
 } 

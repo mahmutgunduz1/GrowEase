@@ -44,14 +44,14 @@ class CategoryFragment : Fragment() {
         recyclerView = view.findViewById(R.id.categoryRecyclerView)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         
-        // Get 3 random items for the selected category
+        // Seçilen kategori için tüm öğeleri getir
         val items = when (categoryType) {
-            "Saksı Bitkileri" -> getRandomItems(PlantData.saksiBitkileri, 3)
-            "Ağaçlar" -> getRandomItems(PlantData.agaclar, 3)
-            "Meyveler" -> getRandomItems(PlantData.meyveler, 3)
-            "Sebzeler" -> getRandomItems(PlantData.sebzeler, 3)
-            "Gübreleme" -> getRandomItems(PlantData.gubreleme, 3)
-            "Budama" -> getRandomItems(PlantData.budama, 3)
+            "Saksı Bitkileri" -> PlantData.saksiBitkileri
+            "Ağaçlar" -> PlantData.agaclar
+            "Meyveler" -> PlantData.meyveler
+            "Sebzeler" -> PlantData.sebzeler
+            "Gübreleme" -> PlantData.gubreleme
+            "Budama" -> PlantData.budama
             else -> emptyList()
         }
         
@@ -61,12 +61,10 @@ class CategoryFragment : Fragment() {
         recyclerView.adapter = adapter
     }
 
-    private fun getRandomItems(list: List<PlantItem>, count: Int): List<PlantItem> {
-        return list.shuffled().take(count)
-    }
-
     private fun showPlantDetail(plant: PlantItem) {
         val fragment = PlantDetailFragment.newInstance(plant)
+        
+        // Fragment işlemlerini gerçekleştir
         parentFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .addToBackStack(null)

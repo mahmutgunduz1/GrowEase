@@ -608,7 +608,7 @@ object PlantData {
 
     val gubreleme = listOf(
         PlantItem(
-            R.drawable.grow,
+            R.drawable.ihtiyacitani,
             "Bitkinin Gübre İhtiyacını Tanı",
             "Bitkinin türüne göre (saksı, ağaç, meyve, sebze) farklı gübre ihtiyaçları belirlenir.",
             "Gübreleme öncesi toprak nemli olmalı.",
@@ -616,7 +616,7 @@ object PlantData {
             "Toprak tipi: Saksılar için torflu, ağaçlar için humuslu, sebzeler için kompost karışımlı toprak uygundur."
         ),
         PlantItem(
-            R.drawable.grow,
+            R.drawable.turusec,
             "Doğru Gübre Türünü Seç",
             "Yeşil bitkiler için azot ağırlıklı, çiçekli bitkiler için fosfor ağırlıklı gübreler tercih edilmeli.",
             "Her gübre türü sulama ile desteklenmeli.",
@@ -624,7 +624,7 @@ object PlantData {
             "Genelde tüm toprak tipleri için uygundur; geçirgen toprak tercih edilir."
         ),
         PlantItem(
-            R.drawable.grow,
+            R.drawable.zamanibelirle,
             "Gübreleme Zamanını Belirle",
             "Saksılar için ilkbahar ve yaz, ağaçlar için ilkbahar başı, sebzeler için dikimden 2 hafta sonrası uygundur.",
             "Gübreleme sonrası bol sulama yapılmalı.",
@@ -632,7 +632,7 @@ object PlantData {
             "Toprak tipi iyi drene olan, su tutmayan toprak olmalı."
         ),
         PlantItem(
-            R.drawable.grow,
+            R.drawable.gubreuygula,
             "Gübreyi Doğru Uygula",
             "Kökten uygulamalarda toprak yüzeyine serpip hafifçe toprağa karıştır. Yaprak gübrelerinde ise yapraklar kuru olmalı.",
             "Sıvı gübreler sulama suyuna karıştırılarak verilmeli.",
@@ -640,7 +640,7 @@ object PlantData {
             "Bitki türüne göre uygulama yöntemi değişir; her bitki için uyumlu tip seçilmeli."
         ),
         PlantItem(
-            R.drawable.grow,
+            R.drawable.takip,
             "Gübreleme Sonrası Takip Et",
             "Bitkinin gelişimi takip edilmeli; yaprak rengi ve büyüme kontrol edilmeli.",
             "Toprakta tuz birikimi olup olmadığı izlenmeli.",
@@ -652,7 +652,7 @@ object PlantData {
 
     val budama = listOf(
         PlantItem(
-            R.drawable.grow,
+            R.drawable.agacbudama,
             "Ağaç Budama",
             "Ağaçların sağlıklı büyümesi ve hava akışını sağlamak için ölü ve zayıf dallar kesilir.",
             "Budama sonrası toprak nemli tutulmalı; aşırı sulamadan kaçınılmalı.",
@@ -660,7 +660,7 @@ object PlantData {
             "Genelde derin, besin açısından zengin topraklarda daha etkili olur."
         ),
         PlantItem(
-            R.drawable.grow,
+            R.drawable.citbudama,
             "Çit Budama",
             "Çit bitkilerinin sık ve düzgün görünmesi için yılda birkaç kez hafif budama yapılır.",
             "Budama sonrası hafif sulama yeterlidir.",
@@ -668,7 +668,7 @@ object PlantData {
             "Hafif geçirgen ve humuslu toprak tercih edilir."
         ),
         PlantItem(
-            R.drawable.grow,
+            R.drawable.meyveagacibudama,
             "Meyve Ağacı Budama",
             "Meyve verimini ve dal dengesi için genç dallar seyreltilir; içe büyüyen dallar kesilir.",
             "Budama sonrası dengeli sulama yapılmalı.",
@@ -676,7 +676,7 @@ object PlantData {
             "Organik maddece zengin topraklar tercih edilir."
         ),
         PlantItem(
-            R.drawable.grow,
+            R.drawable.saksibudama,
             "Saksı Bitkisi Budama",
             "Bitkiye şekil vermek ve canlı görünüm sağlamak için solmuş ve fazla büyüyen dallar kesilir.",
             "Budama sonrası bitkinin nem dengesi korunmalı.",

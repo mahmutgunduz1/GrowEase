@@ -42,12 +42,11 @@ class OnboardingActivity : AppCompatActivity() {
 
         val onboardingItems = listOf(
             OnboardingItem(
-                R.drawable.onboarding_1,
+                R.drawable.ttt,
                 "Bitki Bakımı Rehberi",
                 "GrowEase ile bitkilerinizin bakımını kolayca öğrenin ve uygulayın."
-            ),
-            OnboardingItem(
-                R.drawable.onboarding_2,
+            ),            OnboardingItem(
+                R.drawable.onb2,
                 "Detaylı Bilgiler",
                 "Her bitki için su ihtiyacı, ışık gereksinimi ve toprak tipi gibi detaylı bilgilere ulaşın."
             ),

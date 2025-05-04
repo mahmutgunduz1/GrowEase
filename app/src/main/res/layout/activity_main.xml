@@ -96,8 +96,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="Kategori 1"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ataturkcicegi" />
+                            android:scaleType="fitXY"
+                            android:src="@drawable/saksibitkileri" />
 
                         <TextView
                             android:id="@+id/textCategory1"
@@ -105,8 +105,10 @@
                             android:layout_height="40dp"
                             android:layout_gravity="bottom"
                             android:gravity="center"
+
+
                             android:text="Saksı Bitkileri"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </FrameLayout>
@@ -133,8 +135,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="Kategori 2"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/a" />
+                            android:scaleType="fitXY"
+                            android:src="@drawable/agaclar" />
 
                         <TextView
                             android:id="@+id/textCategory2"
@@ -144,7 +146,8 @@
                             android:fontFamily="@font/alata"
                             android:gravity="center"
                             android:text="Ağaçlar"
-                            android:textColor="@color/black"
+
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </FrameLayout>
@@ -170,8 +173,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="Kategori 3"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/begonya" />
+                            android:scaleType="fitXY"
+
+                            android:src="@drawable/meyveler" />
 
                         <TextView
                             android:id="@+id/textCategory3"
@@ -180,8 +184,9 @@
                             android:layout_gravity="bottom"
                             android:fontFamily="@font/alata"
                             android:gravity="center"
+
                             android:text="Meyveler"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </FrameLayout>
@@ -207,8 +212,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="Kategori 4"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/grow" />
+                            android:scaleType="fitXY"
+                            android:src="@drawable/sebzeler" />
 
                         <TextView
                             android:id="@+id/textCategory4"
@@ -218,7 +223,8 @@
                             android:fontFamily="@font/alata"
                             android:gravity="center"
                             android:text="Sebzeler"
-                            android:textColor="@color/black"
+
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </FrameLayout>
@@ -244,8 +250,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="Kategori 5"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/antoryum" />
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gubre" />
 
                         <TextView
                             android:id="@+id/wrap"
@@ -255,7 +261,8 @@
                             android:fontFamily="@font/alata"
                             android:gravity="center"
                             android:text="Gübreleme"
-                            android:textColor="@color/black"
+
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </FrameLayout>
@@ -281,8 +288,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:contentDescription="Kategori 6"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/menekse" />
+                            android:scaleType="fitXY"
+                            android:src="@drawable/budama" />
 
                         <TextView
                             android:id="@+id/textCategory6"
@@ -292,7 +299,8 @@
                             android:fontFamily="@font/alata"
                             android:gravity="center"
                             android:text="Budama"
-                            android:textColor="@color/black"
+
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </FrameLayout>

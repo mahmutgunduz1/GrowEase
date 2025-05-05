@@ -18,7 +18,7 @@ Android Jetpack
 RecyclerView
 
 View Binding
- MVVM mimarisi
+
 
 ## Ekran Görüntüleri
 

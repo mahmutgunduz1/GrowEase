@@ -25,13 +25,11 @@ View Binding
 
 ![Ana Sayfa](Anasayfa.jpg)
 
-![Bitki Detayı](screenshots/bitkidetail.png)
-
-
-
-Ekran Görüntüleri
-
-
+![Ana Sayfa](appExit.jpg)
+![Ana Sayfa](fruit.jpg)
+![Ana Sayfa](fruitDetails.jpg)
+![Ana Sayfa](search.jpg)
+![Ana Sayfa](tree.jpg)
 Katkıda Bulunma
 Katkılarınız çok değerli! Lütfen bir issue oluşturun veya direkt pull request gönderin.
 

@@ -51,7 +51,7 @@ class OnboardingActivity : AppCompatActivity() {
                 "Her bitki için su ihtiyacı, ışık gereksinimi ve toprak tipi gibi detaylı bilgilere ulaşın."
             ),
             OnboardingItem(
-                R.drawable.onboarding_3,
+                R.drawable.daddadadadada,
                 "Kategorize Edilmiş İçerik",
                 "Saksı bitkileri, ağaçlar, meyveler ve sebzeler gibi kategorilerde bitkileri keşfedin."
             )

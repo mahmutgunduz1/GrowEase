@@ -23,7 +23,8 @@ View Binding
 ## Ekran Görüntüleri
 
 
-![Ana Sayfa] ![Uploading Anasayfa.jpg…]()
+![Ana Sayfa](Anasayfa.jpg)
+
 ![Bitki Detayı](screenshots/bitkidetail.png)
 
 

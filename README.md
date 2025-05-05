@@ -39,7 +39,10 @@ Uygulamada kullanıcılar meyveler hakkında bilgi kartlarıyla görsel
 ve metin destekli şekilde bilgilendirilir. 
 
 ![Meyveler](fruit.jpg)
+
+
 📄 Meyve Detayları
+
 Seçilen bir meyveye ait detay ekranında; toprak tipi, ışık gereksinimi ve sulama sıklığı gibi bilgiler yer alır.
 Ayrıca kullanıcı dostu ikonlar ve düzenli görsel hiyerarşi ile bilgi hızlıca kavranabilir.
 

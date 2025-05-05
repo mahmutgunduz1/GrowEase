@@ -60,6 +60,19 @@ Kartlar, kullanıcıların karşılaştırmalı değerlendirme yapabilmesini kol
 
 
 ![ağaçlar](tree.jpg)
-Katkıda Bulunma
-Katkılarınız çok değerli! Lütfen bir issue oluşturun veya direkt pull request gönderin.
+
+
+📌 Yol Haritası
+
+Gelecek güncellemelerde uygulamaya eklenmesi planlanan bazı özellikler:
+
+🔔 Bitki bakım hatırlatıcıları
+
+📆 Takvim entegrasyonu ile sulama planlama
+
+🧠 Yapay zekâ destekli bitki teşhisi (fotoğrafla bitki tanıma)
+
+🌐 Çoklu dil desteği (İngilizce, Almanca vb.)
+
+
 

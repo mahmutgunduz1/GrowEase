@@ -22,14 +22,27 @@ View Binding
 
 ## Ekran Görüntüleri
 
+Uygulamanın ana ekranında bitki kategorileri listelenmektedir: Saksı Bitkileri, Ağaçlar ve Meyveler.
 
 ![Ana Sayfa](Anasayfa.jpg)
 
-![Ana Sayfa](appExit.jpg)
-![Ana Sayfa](fruit.jpg)
-![Ana Sayfa](fruitDetails.jpg)
-![Ana Sayfa](search.jpg)
-![Ana Sayfa](tree.jpg)
+![uygulamadan çıkış ](appExit.jpg)
+
+🍎 Meyve Kartları Ekranı
+
+Uygulamada kullanıcılar meyveler hakkında bilgi kartlarıyla görsel ve metin destekli şekilde bilgilendirilir. 
+![Meyveler](fruit.jpg)
+
+
+![Meyve Detayları ](fruitDetails.jpg)
+
+🔍 Arama Özelliği
+
+Kullanıcılar uygulama içindeki bitkileri kolayca arayabilir. Örnekte "Atatürk" kelimesiyle yapılan arama sonucu "Atatürk Çiçeği" listelenmiştir.
+![Arama alanı ](search.jpg)
+
+Bu ekran, farklı ağaç türlerini kullanıcıya tanıtan bir kart sistemi sunmaktadır. Her kartta ağacın adı, temel özellikleri, güneş ve su ihtiyacı gibi bilgiler yer almaktadır.
+![ağaçlar](tree.jpg)
 Katkıda Bulunma
 Katkılarınız çok değerli! Lütfen bir issue oluşturun veya direkt pull request gönderin.
 
